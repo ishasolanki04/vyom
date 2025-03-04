@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-start: #F2F5FF;
+  --background-end: #FFFFFF;
+  --primary: #E31B54;
+  --primary-light: #FF6B8B;
+  --text-primary: #2D3748;
+  --text-secondary: #718096;
+  --accent-pink: #FFE5EC;
+  --accent-blue: #E5F0FF;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-sm p-6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-md hover:scale-[1.01];
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.section-title {
+  @apply text-xl font-semibold mb-4 text-[#2D3748];
+}
+
+/* Security Status Indicators */
+.status-good {
+  @apply text-green-600 bg-green-50;
+}
+
+.status-warning {
+  @apply text-amber-600 bg-amber-50;
+}
+
+.status-danger {
+  @apply text-red-600 bg-red-50;
+}
+
+/* Alert Styles */
+.alert {
+  @apply rounded-xl p-4 relative overflow-hidden border border-opacity-10;
+}
+
+.alert.warning {
+  @apply bg-[#FFF5F5] border-red-200;
+}
+
+.alert.info {
+  @apply bg-[#F0F7FF] border-blue-200;
+}
+
+/* Animation for real-time updates */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.animate-status {
+  animation: pulse 2s infinite;
+}
+
+/* Security Feature Cards */
+.security-feature {
+  @apply relative overflow-hidden bg-white rounded-xl p-6 transition-all duration-300;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFF 100%);
+}
+
+.security-feature::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(227, 27, 84, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.security-feature:hover::after {
+  transform: scale(1.2);
+}
+
+.quick-action-button {
+  @apply flex items-center gap-3 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.balance-card {
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFF 100%);
+}
+
+.balance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(227, 27, 84, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  z-index: 0;
+}
+
+.quick-tasks-grid {
+  @apply grid grid-cols-3 gap-4;
+}
+
+.quick-task-item {
+  @apply flex flex-col items-center justify-center p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-200;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
